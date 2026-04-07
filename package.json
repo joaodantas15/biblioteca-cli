@@ -1,0 +1,27 @@
+{
+  "name": "biblioteca-cli",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/joaodantas15/biblioteca-cli.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/joaodantas15/biblioteca-cli/issues"
+  },
+  "homepage": "https://github.com/joaodantas15/biblioteca-cli#readme",
+  "dependencies": {
+    "cli-table3": "^0.6.5",
+    "commander": "^14.0.3",
+    "dotenv": "^17.4.1",
+    "pg": "^8.20.0"
+  }
+}

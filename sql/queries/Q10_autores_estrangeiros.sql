@@ -1,0 +1,1 @@
+SELECT nome, nacionalidade FROM autores WHERE nacionalidade != 'Brasileira';
