@@ -74,4 +74,30 @@ program.command('usuario:add <nome> <email>')
             process.exit();
         }
     });
+    // CREATE: Adicionar novo autor
+program.command('autor:add <nome> <nacionalidade>')
+    .description('Cadastra um novo autor')
+    .action(async (nome, nacionalidade) => {
+        await db.query('INSERT INTO autores (nome, nacionalidade) VALUES ($1, $2)', [nome, nacionalidade]);
+        console.log(`✅ Autor ${nome} cadastrado!`);
+        process.exit();
+    });
+
+// UPDATE: Atualizar status de reserva
+program.command('reserva:status <id> <novo_status>')
+    .description('Atualiza o status de uma reserva')
+    .action(async (id, novo_status) => {
+        await db.query('UPDATE reservas SET status = $1 WHERE id = $2', [novo_status, id]);
+        console.log(`✅ Status da reserva ${id} atualizado para ${novo_status}!`);
+        process.exit();
+    });
+
+// DELETE: Remover um usuário (Cuidado!)
+program.command('usuario:del <id>')
+    .description('Remove um usuário pelo ID')
+    .action(async (id) => {
+        await db.query('DELETE FROM usuarios WHERE id = $1', [id]);
+        console.log(`🗑️ Usuário ${id} removido.`);
+        process.exit();
+    });
 program.parse(process.argv);
