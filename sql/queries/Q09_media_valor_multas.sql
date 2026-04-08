@@ -1,1 +1,0 @@
-SELECT ROUND(AVG(valor), 2) AS media_multas FROM multas;

@@ -1,0 +1,1 @@
+SELECT u.nome, COUNT(e.id) as total FROM usuarios u JOIN emprestimos e ON u.id = e.usuario_id GROUP BY u.nome ORDER BY total DESC;

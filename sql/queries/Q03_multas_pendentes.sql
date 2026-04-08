@@ -1,0 +1,1 @@
+SELECT * FROM multas WHERE paga = false;

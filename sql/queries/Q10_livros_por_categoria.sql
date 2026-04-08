@@ -1,0 +1,1 @@
+SELECT c.nome as categoria, COUNT(l.id) as total_livros FROM livros l JOIN categorias c ON l.categoria_id = c.id GROUP BY c.nome;

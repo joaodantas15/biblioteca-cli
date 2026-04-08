@@ -1,0 +1,1 @@
+SELECT l.titulo, COUNT(r.id) as total FROM livros l JOIN reservas r ON l.id = r.livro_id GROUP BY l.titulo ORDER BY total DESC;

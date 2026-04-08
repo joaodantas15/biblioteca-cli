@@ -1,0 +1,1 @@
+SELECT titulo FROM livros WHERE id NOT IN (SELECT livro_id FROM emprestimos WHERE data_emprestimo > NOW() - INTERVAL '6 months');

@@ -1,0 +1,1 @@
+SELECT u.nome, COUNT(r.id) as total FROM usuarios u JOIN reservas r ON u.id = r.usuario_id GROUP BY u.nome ORDER BY total DESC;
