@@ -33,6 +33,9 @@ DB_PORT=5432
 ### 4. Inicializar o Banco de Dados
 Certifique-se de que o banco biblioteca existe no seu PostgreSQL. Em seguida, execute os comandos de setup:
 
+# Resetar se necessário
+node index.js setup:reset
+
 # Criar as tabelas (schema)
 node index.js setup:create
 
@@ -50,10 +53,24 @@ Listar Usuários: node index.js usuarios:list
 Execução de Queries Customizadas
 Você pode executar qualquer arquivo .sql que esteja dentro da pasta sql/queries/:
 
-```bash
-node index.js query <nome_do_arquivo_sem_extensao>
-````
-Exemplo: node index.js query relatorio_emprestimos
+### Comandos CLI 
+node index.js usuarios:add --> adiciona usuário via terminal
+
+node index.js usuarios:list --> lista os usuários
+
+| Nº | Pergunta de Negócio | Comando para rodar no Terminal |
+| :--- | :--- | :--- |
+| 1 | Livros disponíveis | `node index.js livros:disponiveis` |
+| 2 | Usuários com mais empréstimos | `node index.js usuarios:top-emprestimos` |
+| 3 | Multas pendentes | `node index.js multas:pendentes` |
+| 4 | Reservas de um usuário específico | `node index.js usuarios:reservas 2` |
+| 5 | Livros sem empréstimo (6 meses) | `node index.js livros:sem-emprestimo` |
+| 6 | Livros mais reservados | `node index.js livros:mais-reservados` |
+| 7 | Usuários que mais reservam | `node index.js usuarios:top-reservas` |
+| 8 | Livros disponíveis para reserva | `node index.js reservas:disponiveis` |
+| 9 | Livros indisponíveis | `node index.js relatorios:indisponiveis` |
+| 10 | Livros por categoria (Agregado) | `node index.js livros:por-categoria` |
+
 📁 Estrutura do Projeto
 index.js: Ponto de entrada da aplicação e definição de comandos.
 
