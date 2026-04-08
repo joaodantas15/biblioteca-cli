@@ -131,6 +131,16 @@ Abaixo estão listados todos os comandos implementados, divididos por grupos fun
 | :--- | :--- |
 | `node index.js relatorios:indisponiveis` | **[Q9]** Relatório de livros que não podem ser emprestados no momento |
 
+### 🏛️ Grupo: Administrativo (Autores, Editoras e Categorias)
+Estes comandos gerenciam as entidades base que compõem o acervo da biblioteca.
+
+| Comando | Descrição |
+| :--- | :--- |
+| `node index.js autores:list` | Lista todos os autores registrados e suas nacionalidades |
+| `node index.js autores:add` | Cadastro interativo de um novo autor (Nome e Nacionalidade) |
+| `node index.js editoras:list` | Lista todas as editoras e seus respectivos endereços |
+| `node index.js categorias:list` | Lista as categorias cadastradas e suas descrições |
+
 
 
 📁 Estrutura do Projeto
