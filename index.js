@@ -12,5 +12,5 @@ require('./commands/emprestimos')(program);
 require('./commands/reservas')(program);
 require('./commands/multas')(program);
 require('./commands/relatorios')(program);
-
+require('./commands/administrativo')(program); 
 program.parse(process.argv);
