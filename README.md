@@ -63,7 +63,7 @@ Listar Usuários: node index.js usuarios:list
 Execução de Queries Customizadas
 Você pode executar qualquer arquivo .sql que esteja dentro da pasta sql/queries/:
 
-### Comandos CLI 
+## 💻 Guia Completo de Comandos CLI
 node index.js usuarios:add --> adiciona usuário via terminal
 
 node index.js usuarios:list --> lista os usuários
@@ -83,35 +83,55 @@ node index.js usuarios:list --> lista os usuários
 | 9 | Livros indisponíveis | `node index.js relatorios:indisponiveis` |
 | 10 | Livros por categoria (Agregado) | `node index.js livros:por-categoria` |
 
-## 🛠️ Comandos de Gestão (Operações CRUD)
 
-Estes comandos permitem gerenciar os registros do sistema de forma interativa ou direta.
+Abaixo estão listados todos os comandos implementados, divididos por grupos funcionais conforme as exigências do projeto.
 
-### 📚 Grupo: Livros
+### 🛠️ Grupo: Setup (Inicialização do Banco)
 | Comando | Descrição |
 | :--- | :--- |
-| `node index.js livros:list` | Lista todos os livros, autores e status atual |
-| `node index.js livros:add` | Cadastro interativo de um novo livro |
+| `node index.js setup:create` | Cria as tabelas no banco de dados (DDL) |
+| `node index.js setup:seed` | Popula o banco com os dados iniciais de exemplo (DML) |
+| `node index.js setup:reset` | Apaga tudo, recria as tabelas e popula os dados (Reset total) |
+
+### 📚 Grupo: Livros (Gestão e Consultas)
+| Comando | Descrição |
+| :--- | :--- |
+| `node index.js livros:list` | Lista geral: ID, Título, Autor e Status atual |
+| `node index.js livros:add` | Cadastro interativo de um novo livro no acervo |
+| `node index.js livros:disponiveis` | **[Q1]** Lista apenas livros com status 'disponivel' |
+| `node index.js livros:sem-emprestimo` | **[Q5]** Livros sem movimentação nos últimos 6 meses |
+| `node index.js livros:mais-reservados` | **[Q6]** Ranking dos títulos com mais reservas |
+| `node index.js livros:por-categoria` | **[Q10]** Agrupamento de livros por categoria |
 
 ### 👥 Grupo: Usuários
 | Comando | Descrição |
 | :--- | :--- |
-| `node index.js usuarios:list` | Lista todos os usuários cadastrados |
+| `node index.js usuarios:list` | Lista todos os usuários cadastrados e seus e-mails |
 | `node index.js usuarios:add` | Cadastro interativo de um novo usuário |
+| `node index.js usuarios:top-emprestimos` | **[Q2]** Ranking de usuários com maior volume de empréstimos |
+| `node index.js usuarios:reservas <id>` | **[Q4]** Lista todas as reservas de um usuário específico |
+| `node index.js usuarios:top-reservas` | **[Q7]** Ranking de usuários que mais utilizam o sistema de reservas |
 
 ### 🔄 Grupo: Circulação (Empréstimos e Devoluções)
 | Comando | Descrição |
 | :--- | :--- |
-| `node index.js emprestimos:add` | Registra um novo empréstimo e atualiza o status do livro |
-| `node index.js emprestimos:devolucao` | Registra a devolução e libera o livro para o acervo |
+| `node index.js emprestimos:add` | Registra empréstimo (Altera status do livro para 'emprestado') |
+| `node index.js emprestimos:devolucao` | Registra devolução (Altera status do livro para 'disponivel') |
 
 ### 🎫 Grupo: Reservas e Multas
 | Comando | Descrição |
 | :--- | :--- |
-| `node index.js reservas:add` | Registra uma nova reserva de livro |
-| `node index.js multas:pagar <id>` | Registra o pagamento de uma multa específica pelo ID |
+| `node index.js reservas:disponiveis` | **[Q8]** Lista livros que podem receber novas reservas |
+| `node index.js reservas:add` | Registro manual de uma nova reserva no sistema |
+| `node index.js multas:pendentes` | **[Q3]** Lista todas as multas com status 'paga = false' |
+| `node index.js multas:pagar <id>` | Baixa de pagamento de multa e registro da data de pagamento |
 
----
+### 📊 Grupo: Relatórios Adicionais
+| Comando | Descrição |
+| :--- | :--- |
+| `node index.js relatorios:indisponiveis` | **[Q9]** Relatório de livros que não podem ser emprestados no momento |
+
+
 
 📁 Estrutura do Projeto
 comands/ : Pasta que possui os arquivos JS com os comandos. 
