@@ -34,13 +34,23 @@ DB_PORT=5432
 Certifique-se de que o banco biblioteca existe no seu PostgreSQL. Em seguida, execute os comandos de setup:
 
 # Resetar se necessário
+```bash
 node index.js setup:reset
+````
+# Ajuda para visualizar comandos
+```bash
+node index.js --help
+````
+
 
 # Criar as tabelas (schema)
+```bash
 node index.js setup:create
-
+````
 # Inserir dados de teste (seed)
+```bash
 node index.js setup:seed
+````
 
 💻 Como Usar
 O sistema funciona através de comandos seguidos de parâmetros.
@@ -58,6 +68,8 @@ node index.js usuarios:add --> adiciona usuário via terminal
 
 node index.js usuarios:list --> lista os usuários
 
+
+
 | Nº | Pergunta de Negócio | Comando para rodar no Terminal |
 | :--- | :--- | :--- |
 | 1 | Livros disponíveis | `node index.js livros:disponiveis` |
@@ -71,7 +83,38 @@ node index.js usuarios:list --> lista os usuários
 | 9 | Livros indisponíveis | `node index.js relatorios:indisponiveis` |
 | 10 | Livros por categoria (Agregado) | `node index.js livros:por-categoria` |
 
+## 🛠️ Comandos de Gestão (Operações CRUD)
+
+Estes comandos permitem gerenciar os registros do sistema de forma interativa ou direta.
+
+### 📚 Grupo: Livros
+| Comando | Descrição |
+| :--- | :--- |
+| `node index.js livros:list` | Lista todos os livros, autores e status atual |
+| `node index.js livros:add` | Cadastro interativo de um novo livro |
+
+### 👥 Grupo: Usuários
+| Comando | Descrição |
+| :--- | :--- |
+| `node index.js usuarios:list` | Lista todos os usuários cadastrados |
+| `node index.js usuarios:add` | Cadastro interativo de um novo usuário |
+
+### 🔄 Grupo: Circulação (Empréstimos e Devoluções)
+| Comando | Descrição |
+| :--- | :--- |
+| `node index.js emprestimos:add` | Registra um novo empréstimo e atualiza o status do livro |
+| `node index.js emprestimos:devolucao` | Registra a devolução e libera o livro para o acervo |
+
+### 🎫 Grupo: Reservas e Multas
+| Comando | Descrição |
+| :--- | :--- |
+| `node index.js reservas:add` | Registra uma nova reserva de livro |
+| `node index.js multas:pagar <id>` | Registra o pagamento de uma multa específica pelo ID |
+
+---
+
 📁 Estrutura do Projeto
+comands/ : Pasta que possui os arquivos JS com os comandos. 
 index.js: Ponto de entrada da aplicação e definição de comandos.
 
 config/database.js: Configuração da conexão com o pool do PostgreSQL.
